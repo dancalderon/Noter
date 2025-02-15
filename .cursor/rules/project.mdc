@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+---
+
+# Your rule content
+
+- We will use shadcn, tailwind, react 19, next 15, zod, typescript, better auth, tanstak query, among other libraries
+- The project is the frontend of the app, and will be integrated with the FastAPI backend eventually
+

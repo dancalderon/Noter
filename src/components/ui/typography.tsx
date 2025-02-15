@@ -1,23 +1,24 @@
 import { cn } from "@/lib/utils";
 import { type VariantProps, cva } from "class-variance-authority";
+import Link, { type LinkProps } from "next/link";
 import React from "react";
 
 export const typographyVariants = cva("text-foreground", {
   variants: {
     variant: {
       h1: "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
-      h2: "scroll-m-20 border-b pb-2 text-3xl font-extrabold tracking-tight first:mt-0",
+      h2: "scroll-m-20 pb-2 text-3xl font-extrabold tracking-tight first:mt-0",
       h3: "scroll-m-20 text-2xl font-bold tracking-tight",
-      h4: "scroll-m-20 text-xl font-bold tracking-tight",
+      h4: "scroll-m-20 text-xl font-semibold tracking-tight",
       p: "",
       // [&:not(:first-child)]:mt-6
     },
     affects: {
       default: "",
-      lead: "text-xl text-muted-foreground",
+      lead: "text-xl text-muted-foreground/90",
       large: "text-lg font-bold",
       small: "text-sm font-medium leading-none",
-      muted: "text-sm text-muted-foreground",
+      muted: "text-sm text-muted-foreground/90",
     },
   },
   defaultVariants: {
@@ -44,4 +45,23 @@ const Typography = React.forwardRef<HTMLHeadingElement, TypographyProps>(
 );
 Typography.displayName = "H1";
 
-export default Typography;
+interface StyledLinkProps extends LinkProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const StyledLink = ({ children, className, ...props }: StyledLinkProps) => {
+  return (
+    <Link
+      {...props}
+      className={cn(
+        "text-foreground hover:text-foreground/90 transition-colors font-semibold",
+        className,
+      )}
+    >
+      {children}
+    </Link>
+  );
+};
+
+export { Typography, StyledLink };

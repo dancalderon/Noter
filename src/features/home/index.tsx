@@ -2,9 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import HomeHeader from "@/features/home/components/home-header";
-import { PenLine, Shield, Sparkles } from "lucide-react";
+import { FolderSearch, PenLine, Search, Zap } from "lucide-react";
+
+import KeyFeatures from "@/features/auth/components/key-features";
 import { motion } from "motion/react";
-import Typography from "../../components/ui/typography";
+import HowItWorks from "../auth/components/how-it-works";
 
 export default function Home() {
   return (
@@ -19,11 +21,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl font-bold text-primary-900 mb-6">
-              Capture Your Thoughts with Elegance
+              Capture Ideas Instantly.
+              <span className="block mt-2">Let AI Do the Rest.</span>
             </h1>
             <p className="text-xl text-primary-600 mb-12">
-              A minimalist note-taking experience enhanced with AI capabilities.
-              Focus on what matters most - your ideas.
+              Type a thought, a link, or a quick note—our AI will transform it
+              into a complete, structured entry with relevant details, tags, and
+              sources. No effort required. AI-enhanced notes that adapt to you.
             </p>
           </motion.div>
 
@@ -39,41 +43,8 @@ export default function Home() {
             </Button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            <div className="p-6 rounded-lg bg-white shadow-sm border border-primary-100">
-              <Sparkles className="h-8 w-8 text-primary-600 mb-4" />
-
-              <Typography variant="h4" className="mb-2">
-                AI Enhanced
-              </Typography>
-              <Typography variant="p">
-                Smart suggestions and automatic organization powered by AI
-              </Typography>
-            </div>
-            <div className="p-6 rounded-lg bg-white shadow-sm border border-primary-100">
-              <PenLine className="h-8 w-8 text-primary-600 mb-4" />
-              <Typography variant="h4" className="mb-2">
-                Elegant Design
-              </Typography>
-              <Typography variant="p">
-                Clean, distraction-free interface for focused writing
-              </Typography>
-            </div>
-            <div className="p-6 rounded-lg bg-white shadow-sm border border-primary-100">
-              <Shield className="h-8 w-8 text-primary-600 mb-4" />
-              <Typography variant="h4" className="mb-2">
-                Secure Storage
-              </Typography>
-              <Typography variant="p">
-                Your notes are encrypted and safely stored in the cloud
-              </Typography>
-            </div>
-          </motion.div>
+          <KeyFeatures />
+          <HowItWorks />
         </div>
       </main>
     </div>

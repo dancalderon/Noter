@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 
 import {
   Card,
@@ -19,9 +18,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { StyledLink, Typography } from "@/components/ui/typography";
 import AuthHeader from "@/features/auth/components/auth-header";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { PenLine } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { PasswordInput } from "./components/password-input";
@@ -55,16 +54,6 @@ export default function SignInScreen() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              {" "}
-              {/* {error && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-3 rounded-md bg-red-50 text-red-600 text-sm"
-              >
-                {error}
-              </motion.div>
-            )} */}
               <FormField
                 control={form.control}
                 name="email"
@@ -107,15 +96,10 @@ export default function SignInScreen() {
         </CardContent>
 
         <CardFooter>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
+          <Typography variant="p" affects="muted" className="mt-6 text-center">
             Don't have an account?{" "}
-            <Link
-              href="/sign-up"
-              className="font-medium text-primary-900 hover:text-primary-800"
-            >
-              Sign up
-            </Link>
-          </p>
+            <StyledLink href="/sign-up">Sign up</StyledLink>
+          </Typography>
         </CardFooter>
       </Card>
     </AuthHeader>
